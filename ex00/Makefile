@@ -6,9 +6,9 @@ INCLUDEPATH		= ./
 
 SRCPATH 		= ./
 
-OBJDIR 			= ./
+OBJDIR 			= ./obj/
 
-DEPDIR 			= ./
+DEPDIR 			= ./dep/
 
 SRCNAME			= main.cpp Zombie.cpp randomChump.cpp newZombie.cpp
 
@@ -20,18 +20,22 @@ DEPS = $(patsubst $(OBJDIR)%.o, $(DEPDIR)%.d, $(OBJS))
 
 NAME = zombie
 
-all: $(NAME)
+all: $(OBJDIR) $(DEPDIR) $(NAME)
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJDIR) $(DEPDIR):
+	@mkdir -p $(OBJDIR) $(DEPDIR)
+
+$(OBJDIR)%.o: $(SRCPATH)%.cpp
+	@$(CC) $(CFLAGS) -I$(INCLUDEPATH) -MMD -MP -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	@mv obj/*.d dep/
 
 -include $(DEPS)
 
 clean:
-	rm -f $(OBJS)
+	rm -rf obj dep
 
 fclean: clean
 	rm -f $(NAME)

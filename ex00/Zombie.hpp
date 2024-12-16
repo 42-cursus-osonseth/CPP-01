@@ -10,7 +10,7 @@ private:
 public:
     Zombie(std::string name);
     ~Zombie();
-    void announce(void);
+    void announce(void) const;
     static Zombie* newZombie( std::string name );
     static void randomChump( std::string name );
     
