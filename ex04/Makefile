@@ -10,7 +10,7 @@ OBJDIR 			= ./obj/
 
 DEPDIR 			= ./dep/
 
-SRCNAME			= main.cpp 
+SRCNAME			= main.cpp FileManager.cpp
 
 SRCS = $(addprefix $(SRCPATH), $(SRCNAME))
 
@@ -18,7 +18,7 @@ OBJS = $(patsubst $(SRCPATH)%.cpp, $(OBJDIR)%.o, $(SRCS))
 
 DEPS = $(patsubst $(OBJDIR)%.o, $(DEPDIR)%.d, $(OBJS))
 
-NAME = TOTO
+NAME = filemanager
 
 all: $(OBJDIR) $(DEPDIR) $(NAME)
 
