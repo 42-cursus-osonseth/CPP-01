@@ -18,7 +18,7 @@ OBJS = $(patsubst $(SRCPATH)%.cpp, $(OBJDIR)%.o, $(SRCS))
 
 DEPS = $(patsubst $(OBJDIR)%.o, $(DEPDIR)%.d, $(OBJS))
 
-NAME = zombie
+NAME = a.out
 
 all: $(OBJDIR) $(DEPDIR) $(NAME)
 
