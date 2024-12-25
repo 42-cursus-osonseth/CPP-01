@@ -22,25 +22,25 @@ void Harl::init_func_array()
     func_ptr[3] = &Harl::error;
     func_ptr[4] = &Harl::not_valid_level;
 }
-void Harl::not_valid_level(void)
+void Harl::not_valid_level(void) const
 {
     return;
 }
-void Harl::debug(void)
+void Harl::debug(void) const
 {
     std::cout << "it's DEBUG message" << std::endl;
 }
-void Harl::info(void)
+void Harl::info(void) const
 {
     std::cout << "it's INFO message" << std::endl;
 }
 
-void Harl::warning(void)
+void Harl::warning(void) const
 {
     std::cout << "it's WARNING message" << std::endl;
 }
 
-void Harl::error(void)
+void Harl::error(void) const
 {
     std::cout << "it's ERROR message" << std::endl;
 }
