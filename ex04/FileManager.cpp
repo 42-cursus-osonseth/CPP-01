@@ -9,7 +9,7 @@ FileManager::~FileManager()
 {
     close_files();
 }
-void FileManager::handle_err(const std::string &str)
+void FileManager::handle_err(const std::string &str) const
 {
     throw std::runtime_error(str);
 }
@@ -44,6 +44,10 @@ void FileManager::open_files()
     _input_file.open(_file_name.c_str(), std::ios::in);
     if (!_input_file.is_open())
         handle_err("Unable to open input file");
+    _input_file.seekg(0, std::ios::end);
+    if (_input_file.tellg() == 0)
+        handle_err("Input file is empty");
+    _input_file.seekg(0, std::ios::beg);
     _output_file.open(_new_file_name.c_str(), std::ios::out);
     if (!_output_file.is_open())
         handle_err("Unable to open output file");
@@ -55,16 +59,3 @@ void FileManager::close_files()
     if (_output_file.is_open())
         _output_file.close();
 }
-// void FileManager::handle_err(const std::string &str)
-// {
-//     throw std::runtime_error(str);
-// }
-
-// void FileManager::print()
-// {
-//     std::cout << file_name << std::endl;
-//     std::cout << new_file_name << std::endl;
-//     std::cout << line << std::endl;
-//     std::cout << s1 << std::endl;
-//     std::cout << s2 << std::endl;
-// }

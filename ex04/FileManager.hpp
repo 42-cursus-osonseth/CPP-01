@@ -16,18 +16,16 @@ private:
     std::string _s2;
     std::fstream _input_file;
     std::fstream _output_file;
+    void open_files();
+    void close_files();
+    void process_line(std::string &line);
+    void handle_err(const std::string &str) const;
 
 public:
     FileManager(char **argv);
     ~FileManager();
     static void check_args(int argc, char **argv);
-    void open_files();
-    void close_files();
     void process_file();
-    void process_line(std::string &line);
-    void handle_err (const std::string &str);
-    
-
 };
 
 #endif
