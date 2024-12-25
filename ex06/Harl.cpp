@@ -54,7 +54,29 @@ void Harl::complain(std::string level)
     int i = 0;
     while (levels[i] != level && i < 4)
         i++;
-    (this->*(func_ptr[i++]))();
-    while (i < 4)
-        (this->*(func_ptr[i++]))();
+    switch (i)
+    {
+    case 0:
+        debug();
+        break;
+    case 1:
+        debug();
+        info();
+        break;
+    case 2:
+        debug();
+        info();
+        warning();
+        break;
+    case 3:
+        debug();
+        info();
+        warning();
+        error();
+        break;
+
+    default:
+        not_valid_level();
+        break;
+    }
 }
