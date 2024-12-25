@@ -10,7 +10,7 @@ OBJDIR 			= ./obj/
 
 DEPDIR 			= ./dep/
 
-SRCNAME			= main.cpp Zombie.cpp randomChump.cpp newZombie.cpp
+SRCNAME			= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 SRCS = $(addprefix $(SRCPATH), $(SRCNAME))
 
