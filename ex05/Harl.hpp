@@ -20,7 +20,7 @@ public:
     ~Harl();
     void init_string_array();
     void init_func_array();
-        void complain(std::string level);
+    void complain(std::string level);
 };
 
 #endif
