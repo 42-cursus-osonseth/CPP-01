@@ -1,10 +1,8 @@
 #include "Zombie.hpp"
 
-#define N 10
-
 int main ()
 {
-    Zombie *z = Zombie::zombieHorde(N, "BOOOO");
+    Zombie *z = Zombie::zombieHorde(10, "BOOOO");
     delete []z;
     return 0;
 }
